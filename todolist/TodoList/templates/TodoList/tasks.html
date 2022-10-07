@@ -9,6 +9,7 @@
     <title>Tarefas</title>
 </head>
 <body>
+    
     <table>
         <tr>
         <h1>Items:</h1>
@@ -22,7 +23,7 @@
             <td>  {{task.title}}  </td>
             <td> </td>
             <td><a href="{% url 'task' task.id %}">Details</a></td>
-            <td><a href="{% url 'task_update' task.id %}">Edit</a></td>
+            
             <td><a href="{% url 'task_delete' task.id %}">Delete</a></td>
 
         </tr>
