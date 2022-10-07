@@ -4,28 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+    {% load static %}
+    <link rel="stylesheet" href= "{% static 'tasks.css' %}">
+    <style>
+
+        *{
+            color:#fff;
+            background-color: rgb(63, 63, 63);            
+        }
+        body{
+            font-family: sans-serif;
+            padding-top:50px;
+            background-color: rgb(63, 63, 63);
+            display: flex;
+            -ms-flex-align: center;
+        }
+        
+        .container{
+
+            width: 700px;
+            margin:auto;
+            background-color: #fff;
+            background-color: rgb(63, 63, 63);
+        }
+        button{
+            padding: 3px;
+        }
+
+
+
+    </style>
+
     <title>Tarefas</title>
 </head>
 <body>
-    
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+
+        
     <table>
         <tr>
         <h1>Items:</h1>
-        
         <th></th>
         </tr>
-
         {% for task in tasks %}
         <tr>
-            
-            <td>  {{task.title}}  </td>
+            <td>{{task.title}}</td>
             <td> </td>
-            <td><a href="{% url 'task' task.id %}">Details</a></td>
-            
-            <td><a href="{% url 'task_delete' task.id %}">Delete</a></td>
-
+            <td><button><a href="{% url 'task' task.id %}">Details</a></button></td>
+            <td><button><a href="{% url 'task_delete' task.id %}">Delete</a></button></td>
         </tr>
         {% empty %}
         <h3>No items in list</h3>
@@ -34,5 +63,6 @@
     <br>
     <br>
     <button><a href="{% url 'task_form' %}">Add Task</a></button>
+    </div>
 </body>
 </html>
