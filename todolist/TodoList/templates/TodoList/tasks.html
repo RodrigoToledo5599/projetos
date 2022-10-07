@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Tarefas</title>
+</head>
+<body>
+    <table>
+        <tr>
+        <h1>Items:</h1>
+        
+        <th></th>
+        </tr>
+
+        {% for task in tasks %}
+        <tr>
+            
+            <td>  {{task.title}}  </td>
+            <td> </td>
+            <td><a href="{% url 'task' task.id %}">Details</a></td>
+            <td><a href="{% url 'task_update' task.id %}">Edit</a></td>
+            <td><a href="{% url 'task_delete' task.id %}">Delete</a></td>
+
+        </tr>
+        {% empty %}
+        <h3>No items in list</h3>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <button><a href="{% url 'task_form' %}">Add Task</a></button>
+</body>
+</html>
