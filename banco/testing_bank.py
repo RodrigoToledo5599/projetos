@@ -1,4 +1,4 @@
-from banksystem import *
+from banksystem import nubanco
 
 if __name__ =="__main__":
     
@@ -24,9 +24,11 @@ if __name__ =="__main__":
 
         elif escolha[0] == "3":
             bank.mostrar_saldo()
-
+            
         elif escolha[0] == "4":
             bank.mostrar_historico()
 
         elif escolha[0] == "5":
             break
+
+print("\n===================== seção finalizada =========================\n")
