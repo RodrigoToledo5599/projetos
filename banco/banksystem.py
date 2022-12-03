@@ -12,7 +12,7 @@ class nubanco:
     def sacarDinheiro(self,*var):
         self.saque = int(input("valor do saque: "))
         if self.saque<0:
-            self.dash.changelabel("proibido saque com valores negativos")
+            print("proibido saque com valores negativos")
         else:
             self.saldo =nubanco._calcsaldo(self.saldo,self.historico)
 
@@ -21,6 +21,7 @@ class nubanco:
                 
             else:
                 self.historico.append(-self.saque)
+
                 self.notas["q100"] = int(self.saque/100)
                 self.saque = self.saque - self.notas["q100"]*100
                 self.notas["q100"] = str(self.notas["q100"])    
